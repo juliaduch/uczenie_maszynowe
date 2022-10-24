@@ -1,37 +1,7 @@
-class Property:
-    def __init__(self, area, rooms: int, price, address):
-        self.area = area
-        self.rooms = rooms
-        self.price = price
-        self.address = address
+from uczenie_maszynowe.klasy import Property
 
-
-class House(Property):
-    def __init__(self, area, rooms: int, price, address, plot,
-                 rozmiar_dzialki: int):
-        super().__init__(area, rooms, price, address)
-        self.plot = plot
-        self.rozmiar_dzialki = rozmiar_dzialki
-
-    def __str__(self):
-        return f'House with area of {self.area} and {self.rooms} rooms, ' \
-               f'costs {self.price}, in {self.address},' \
-               f' plot {self.plot}, area {self.rozmiar_dzialki}'
-
-
-class Flat(Property):
-    def __init__(self, area, rooms: int, price, address, floor):
-        super().__init__(area, rooms, price, address)
-        self.floor = floor
-
-    def __str__(self):
-        return f'Flat with area of {self.area} and {self.rooms} rooms,' \
-               f' costs {self.price}, ' \
-               f'in {self.address}, on {self.floor} floor'
-
-
-house = House(1234, 5, 60000, 'warszawa', 'stalowy', 15)
-flat = Flat(60, 2, 20000, 'bytom', 5)
+house = Property.House(1234, 5, 60000, 'warszawa', 'stalowy', 15)
+flat = Property.Flat(60, 2, 20000, 'bytom', 5)
 
 print(house)
 print(flat)
